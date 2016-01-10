@@ -7,7 +7,7 @@ def courses_main(request):
 	context = {
 		'course_list': course_list,
 	}
-	return render(request, 'course_catalog/index.html', context)
+	return render(request, 'course_catalog/courses.html', context)
 
 def courses_add(request):
 	return HttpResponse('On add courses route.')
