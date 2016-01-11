@@ -1,0 +1,21 @@
+{% extends "course_catalog/base.html" %}
+{% load static %}
+
+{% block header %}
+	<div class="">
+		<h2>{{ course.course_title }}</h2>
+		<h5>{{ course.course_description }}</h5>
+	</div>
+	<a href="/courses/{{ course.id }}/change" class="btn btn-primary pull-right">Change</a>
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		{{course.course_image}}
+		<img src="/static/{{course.course_image.url}}" alt="">
+		<ul class="pull-right">
+			<li>Instructor: {{ course.course_instructor }}</li>
+			<li>Duration: {{ course.course_duration }}</li>
+		</ul>
+	</div>
+{% endblock %}

@@ -15,24 +15,29 @@
 				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#course-catalog-navbar-collapse-1"><span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span></button>
-				<a href="#" class="navbar-brand">Sample Django Project</a>
+				<a href="/courses" class="navbar-brand">Sample Django Project</a>
 			</div>
 			<div class="collapse navbar-collapse" id="course-catalog-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Course List</a></li>
-				<li><a href="add">Add a course</a></li>
+				<li><a href="/courses">Course List</a></li>
+				<li><a href="/courses/add">Add a course</a></li>
 			</ul>
 		</div>
 		</div>
 	</nav>
 	<div class="container">
-		{% if course_list %}
-			{% block courses %}
+		<div class="container">
+
+			<div class="jumbotron">
+				{% block header %}
+				{% endblock %}
+			</div>
+
+			{% block content %}
 			
 			{% endblock %}
-		{% else %}
-			<p>No courses available at this time.</p>
-		{% endif %}
+		
+		</div>
 	</div>
 </body>
 </html>

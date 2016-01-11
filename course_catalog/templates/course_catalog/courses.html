@@ -1,31 +1,37 @@
 {% extends "course_catalog/base.html" %}
 
-{% block courses %}
+{% block header %}
 
-	<div class="jumbotron">
-		<h1>Django Course Catalog</h1>
-		<h5>Please select from our awesome courses!</h5>
-	</div>
+	<h1>Django Course Catalog</h1>
+	<h5>Please select from our awesome courses!</h5>
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<td>#</td>
-				<td>Course Title</td>
-				<td>Instructor</td>
-				<td>Duration</td>
-			</tr>
-		</thead>
-		<tbody>
-			{% for course in course_list %}
+{% endblock %}
+
+{% block content %}
+	
+	{% if course_list %}
+		<table class="table table-striped">
+			<thead>
 				<tr>
-					<td>{{ course.id }}</td>
-					<td><a href="/courses/{{ course.id }}">{{ course.course_title }}</a></td>
-					<td>{{ course.course_instructor }}</td>
-					<td>{{ course.course_duration }} weeks</td>
+					<td>#</td>
+					<td>Course Title</td>
+					<td>Instructor</td>
+					<td>Duration</td>
 				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{% for course in course_list %}
+					<tr>
+						<td>{{ course.id }}</td>
+						<td><a href="/courses/{{ course.id }}">{{ course.course_title }}</a></td>
+						<td>{{ course.course_instructor }}</td>
+						<td>{{ course.course_duration }} weeks</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No courses available at this time.</p>
+	{% endif %}
 
 {% endblock %}
